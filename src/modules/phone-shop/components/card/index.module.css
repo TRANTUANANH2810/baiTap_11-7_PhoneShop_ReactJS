@@ -1,0 +1,27 @@
+.card {
+	max-width: 300px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+}
+
+.card-img {
+	padding: 8px 0px;
+}
+
+.card-img img {
+	display: block;
+	width: 100%;
+	object-fit: contain;
+}
+
+.card-content {
+	padding: 8px;
+	margin-top: auto;
+}
+
+.card-footer {
+	display: flex;
+	gap: 10px;
+}
