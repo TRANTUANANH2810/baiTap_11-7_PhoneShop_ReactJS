@@ -6,14 +6,7 @@ import { GioHang } from "./components/gio-hang";
 import { TransformSanPham } from "../../utils";
 
 export function PhoneShop() {
-	const [listSanPham, setListSanPham] = useState([
-		{
-			id: 1212,
-			name: "iPhone",
-			price: 1000,
-			amount: 2,
-		},
-	]);
+	const [listSanPham, setListSanPham] = useState([]);
 
 	const [phoneDetail, setPhoneDetail] = useState(mockData[1]);
 
@@ -40,11 +33,36 @@ export function PhoneShop() {
 		// setListSanPham
 	};
 
+	const onDelete = (id) => {
+		if (confirm("Are you sure you want to delete?")) {
+			const newListSanPham = listSanPham.filter((i) => i.id !== id);
+			setListSanPham(newListSanPham);
+		}
+	};
+
+	const onTang = (id) => {
+		const sanPham = listSanPham.find((i) => i.id === id);
+
+		if (sanPham) {
+			sanPham.amount += 1;
+		}
+		setListSanPham([...listSanPham]);
+	};
+
+	const onGiam = (id) => {
+		const sanPham = listSanPham.find((i) => i.id === id);
+
+		if (sanPham) {
+			sanPham.amount -= 1;
+		}
+		setListSanPham([...listSanPham]);
+	};
+
 	return (
 		<>
 			{/* GioHang */}
 			<div className="container">
-				<GioHang listSanPham={listSanPham} />
+				<GioHang listSanPham={listSanPham} onDelete={onDelete} />
 			</div>
 
 			{/* Card */}

@@ -1,5 +1,5 @@
 // import css from "./index.module.css";
-export function GioHang({ listSanPham }) {
+export function GioHang({ listSanPham, onDelete, onTang, onGiam }) {
 	return (
 		<>
 			<div>
@@ -21,13 +21,34 @@ export function GioHang({ listSanPham }) {
 									<td>{i.name}</td>
 									<td>{i.price}</td>
 									<td>
-										<button className="btn btn-success">-</button>
+										<button
+											onClick={() => {
+												onGiam(i.id);
+											}}
+											className="btn btn-success"
+										>
+											-
+										</button>
 										<span> {i.amount} </span>
-										<button className="btn btn-success">+</button>
+										<button
+											onClick={() => {
+												onTang(i.id);
+											}}
+											className="btn btn-success"
+										>
+											+
+										</button>
 									</td>
 									<td>{i.amount * i.price}</td>
 
-									<td className=" btn btn-danger">Xóa</td>
+									<td
+										onClick={() => {
+											onDelete(i.id);
+										}}
+										className=" btn btn-danger"
+									>
+										Xóa
+									</td>
 								</tr>
 							);
 						})}
