@@ -1,7 +1,7 @@
 import { Text } from "../../../../components/text";
 import css from "./index.module.css";
 
-export function Card({ name, price, image, id }) {
+export function Card({ name, price, image, id, onChangePhoneDetail }) {
 	return (
 		<>
 			<div className={css.card}>
@@ -14,7 +14,7 @@ export function Card({ name, price, image, id }) {
 					<Text as={"p"}>${price}</Text>
 
 					<div className={css["card-footer"]}>
-						<button onClick={() => {}} className="btn btn-dark">
+						<button onClick={onChangePhoneDetail} className="btn btn-dark">
 							Xem chi tiết
 						</button>
 

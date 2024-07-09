@@ -1,9 +1,15 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { mockData } from "./__mock-data__";
 import { Card } from "./components/card";
 import { XemChiTiet } from "./components/xem-chi-tiet";
 
 export function PhoneShop() {
+	const [phoneDetail, setPhoneDetail] = useState(mockData[1]);
+
+	const onChangePhoneDetail = (phone) => {
+		setPhoneDetail(phone);
+	};
+
 	return (
 		<>
 			{/* Card */}
@@ -21,6 +27,9 @@ export function PhoneShop() {
 								name={item.tenSP}
 								price={item.giaBan}
 								image={item.hinhAnh}
+								onChangePhoneDetail={() => {
+									onChangePhoneDetail(item);
+								}}
 							/>
 						</Fragment>
 					);
@@ -29,14 +38,14 @@ export function PhoneShop() {
 
 			{/* Xem Chi Tiet */}
 			<XemChiTiet
-				name={mockData[0].tenSP}
-				img={mockData[0].hinhAnh}
-				manHinh={mockData[0].manHinh}
-				heDieuHanh={mockData[0].heDieuHanh}
-				cameraTruoc={mockData[0].cameraTruoc}
-				cameraSau={mockData[0].cameraSau}
-				ram={mockData[0].ram}
-				rom={mockData[0].rom}
+				name={phoneDetail.tenSP}
+				img={phoneDetail.hinhAnh}
+				manHinh={phoneDetail.manHinh}
+				heDieuHanh={phoneDetail.heDieuHanh}
+				cameraTruoc={phoneDetail.cameraTruoc}
+				cameraSau={phoneDetail.cameraSau}
+				ram={phoneDetail.ram}
+				rom={phoneDetail.rom}
 			/>
 		</>
 	);
