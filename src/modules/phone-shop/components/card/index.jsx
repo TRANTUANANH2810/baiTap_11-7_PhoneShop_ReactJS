@@ -1,7 +1,14 @@
 import { Text } from "../../../../components/text";
 import css from "./index.module.css";
 
-export function Card({ name, price, image, id, onChangePhoneDetail }) {
+export function Card({
+	name,
+	price,
+	image,
+	id,
+	onChangePhoneDetail,
+	onAddSanPham,
+}) {
 	return (
 		<>
 			<div className={css.card}>
@@ -18,7 +25,7 @@ export function Card({ name, price, image, id, onChangePhoneDetail }) {
 							Xem chi tiết
 						</button>
 
-						<button onClick={() => {}} className="btn btn-dark">
+						<button onClick={onAddSanPham} className="btn btn-dark">
 							Thêm vào giỏ hàng
 						</button>
 					</div>
